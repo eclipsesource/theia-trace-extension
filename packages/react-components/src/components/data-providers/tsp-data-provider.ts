@@ -14,6 +14,7 @@ import { OutputElementStyle } from 'tsp-typescript-client/lib/models/styles';
 import { Annotation, Type } from 'tsp-typescript-client/lib/models/annotation';
 import { TimeRange } from 'traceviewer-base/lib/utils/time-range';
 import { GenericResponse, TspClientResponse } from 'tsp-typescript-client';
+import { TspFrontendClient } from 'traceviewer-base/lib/tsp-frontend-client';
 
 enum ElementType {
     STATE = 'state',
@@ -21,7 +22,7 @@ enum ElementType {
 }
 
 export class TspDataProvider {
-    private client: TspClient;
+    private client: TspClient | TspFrontendClient;
     private outputId: string;
     private traceUUID: string;
     private timeGraphEntries: TimeGraphEntry[];
@@ -29,7 +30,7 @@ export class TspDataProvider {
 
     public totalRange: bigint;
 
-    constructor(client: TspClient, traceUUID: string, outputId: string) {
+    constructor(client: TspClient | TspFrontendClient, traceUUID: string, outputId: string) {
         this.timeGraphEntries = [];
         this.timeGraphRows = [];
         this.client = client;

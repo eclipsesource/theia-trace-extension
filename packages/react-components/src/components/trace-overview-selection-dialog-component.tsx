@@ -3,9 +3,10 @@ import { OutputDescriptor, TspClient } from 'tsp-typescript-client';
 import { AbstractDialogComponent, DialogComponentProps } from './abstract-dialog-component';
 import { signalManager } from 'traceviewer-base/lib/signals/signal-manager';
 import { AvailableViewsComponent } from './utils/available-views-component';
+import { TspFrontendClient } from 'traceviewer-base/lib/tsp-frontend-client';
 
 export interface TraceOverviewSelectionComponentProps extends DialogComponentProps {
-    tspClient: TspClient;
+    tspClient: TspClient | TspFrontendClient;
     traceID: string;
 }
 

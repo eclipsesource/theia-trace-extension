@@ -30,11 +30,12 @@ import { cloneDeep } from 'lodash';
 import { UnitControllerHistoryHandler } from './utils/unit-controller-history-handler';
 import { TraceOverviewComponent } from './trace-overview-component';
 import { TimeRangeUpdatePayload } from 'traceviewer-base/lib/signals/time-range-data-signal-payloads';
+import { TspFrontendClient } from 'traceviewer-base/lib/tsp-frontend-client';
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
 export interface TraceContextProps {
-    tspClient: TspClient;
+    tspClient: TspClient | TspFrontendClient;
     experiment: Experiment;
     outputs: OutputDescriptor[];
     overviewDescriptor?: OutputDescriptor; // The default output descriptor for the overview

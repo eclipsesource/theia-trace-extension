@@ -11,16 +11,11 @@ import { TooltipComponent } from './tooltip-component';
 import { TooltipXYComponent } from './tooltip-xy-component';
 import { ResponseStatus } from 'tsp-typescript-client/lib/models/response/responses';
 import { signalManager } from 'traceviewer-base/lib/signals/signal-manager';
-import {
-    DropDownComponent,
-    DropDownSubSection,
-    OptionCheckBoxState,
-    OptionState,
-    OptionType
-} from './drop-down-component';
+import { DropDownComponent, DropDownSubSection, OptionState } from './drop-down-component';
+import { TspFrontendClient } from 'traceviewer-base/lib/tsp-frontend-client';
 
 export interface AbstractOutputProps {
-    tspClient: TspClient;
+    tspClient: TspClient | TspFrontendClient;
     tooltipComponent: TooltipComponent | null;
     tooltipXYComponent: TooltipXYComponent | null;
     traceId: string;

@@ -3,9 +3,10 @@ import { TspClient } from 'tsp-typescript-client/lib/protocol/tsp-client';
 import { QueryHelper } from 'tsp-typescript-client/lib/models/query/query-helper';
 import { OutputStyleModel, OutputElementStyle } from 'tsp-typescript-client/lib/models/styles';
 import { StyleProperties } from './style-properties';
+import { TspFrontendClient } from 'traceviewer-base/lib/tsp-frontend-client';
 
 export class StyleProvider {
-    private tspClient: TspClient;
+    private tspClient: TspClient | TspFrontendClient;
     private traceId: string;
     private outputId: string;
 
@@ -13,7 +14,7 @@ export class StyleProvider {
 
     private styleModel: OutputStyleModel | undefined;
 
-    constructor(outputId: string, traceId: string, tspClient: TspClient) {
+    constructor(outputId: string, traceId: string, tspClient: TspClient | TspFrontendClient) {
         this.outputId = outputId;
         this.tspClient = tspClient;
         this.traceId = traceId;
